@@ -6,13 +6,13 @@
 /*   By: mpetrovy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/20 13:15:33 by mpetrovy          #+#    #+#             */
-/*   Updated: 2018/08/24 17:47:16 by mpetrovy         ###   ########.fr       */
+/*   Updated: 2018/08/24 17:56:01 by mpetrovy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		follow_conversion(char c, t_arg *arg, va_list ap)
+static void		follow_conversion(char c, t_arg *arg, va_list ap, int ret_nb)
 {
 	if (c == 's' && !arg->flags.l)
 		type_string(arg, va_arg(ap, char*));
@@ -21,7 +21,7 @@ static void		follow_conversion(char c, t_arg *arg, va_list ap)
 	else if (c == 'p')
 		type_pointer(arg, ap);
 	else if (c == 'n')
-		type_n(arg, ap);
+		type_n(ap, ret_nb);
 	else if (c == 'd' || c == 'D' || c == 'i')
 		type_decimal(arg, ap);
 	else if (c == 'o' || c == 'O')
@@ -48,7 +48,8 @@ void			parse_argument(t_global *global)
 	filtration(&arg, global->format[global->i]);
 	if (global->format[global->i] != '\0')
 	{
-		follow_conversion(global->format[global->i], &arg, global->ap);
+		follow_conversion(global->format[global->i], &arg, global->ap,
+						global->ret_nb);
 		ptr = ft_memjoin(global->buffer, global->ret_nb, arg.argument,
 						arg.length);
 		ft_memdel((void**)&global->buffer);
