@@ -6,7 +6,7 @@
 /*   By: mpetrovy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 14:12:04 by mpetrovy          #+#    #+#             */
-/*   Updated: 2018/08/12 18:01:40 by mpetrovy         ###   ########.fr       */
+/*   Updated: 2018/08/24 16:49:57 by mpetrovy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ struct			s_flags
 
 struct			s_arg
 {
+	int a;
 	char	*argument;
 	int		length;
 	int		h_counter;
