@@ -6,9 +6,6 @@ SRC_DIR	:= ./src
 INC_DIR	:= ./includes
 LIB_DIR := ./src/libft
 
-#LIB_PATH		:=	libft
-#LIB				:=	$(LIB_PATH)/libft.a
-#LIB_LINK		:=	-L $(LIB_PATH) -lft
 INCS	:=	-I $(INC_DIR)
 
 OBJ_DIR1	:= ./obj1
@@ -18,7 +15,7 @@ SRC_FT_PRINTF	:=	ft_printf.c \
 					itoa_base.c \
 					get.c \
 					get_number.c \
-					join_args.c \
+					join.c \
 					parsing/parsing.c \
 					parsing/parse_flags.c \
 					parsing/parse_argument.c \

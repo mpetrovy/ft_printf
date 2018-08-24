@@ -6,7 +6,7 @@
 /*   By: mpetrovy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 14:56:39 by mpetrovy          #+#    #+#             */
-/*   Updated: 2018/08/24 16:47:49 by mpetrovy         ###   ########.fr       */
+/*   Updated: 2018/08/24 16:52:25 by mpetrovy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ char	*get_precision(t_arg *arg, int nb_len)
 	if (arg->flags.have_precision)
 	{
 		arg->precision -= nb_len;
-		arg->a = 1;
 		if (arg->precision > 0)
 		{
 			return (ft_memset(malloc(arg->precision), '0', arg->precision));

@@ -6,7 +6,7 @@
 /*   By: mpetrovy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 11:44:09 by mpetrovy          #+#    #+#             */
-/*   Updated: 2018/08/12 17:42:06 by mpetrovy         ###   ########.fr       */
+/*   Updated: 2018/08/24 17:31:17 by mpetrovy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void		type_wchar_string(t_arg *arg, va_list ap)
 	else
 	{
 		apply_precision(wchar, arg);
-		join_args(arg, get_width(arg, arg->length), arg->width,
-				arg->flags.minus == 0);
+		join_width(arg, arg->length, arg->flags.minus == 0);
 	}
 }

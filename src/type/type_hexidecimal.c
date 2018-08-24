@@ -6,7 +6,7 @@
 /*   By: mpetrovy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 11:45:47 by mpetrovy          #+#    #+#             */
-/*   Updated: 2018/08/12 18:03:08 by mpetrovy         ###   ########.fr       */
+/*   Updated: 2018/08/24 17:23:57 by mpetrovy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ void		type_hexidecimal(t_arg *arg, va_list ap, char c)
 	have_hash = 0;
 	if (arg->flags.hash && nb[0] != '0')
 		have_hash = 1;
-	join_args(arg, get_precision(arg, nb_len), arg->precision, REVERSE);
-	join_args(
-		arg, get_hash(arg->flags, c), have_hash ? 2 : 0, arg->flags.zero == 0);
+	join_precision(arg, nb_len);
+	join_args(arg, get_hash(arg->flags, c), have_hash ? 2 : 0,
+			arg->flags.zero == 0);
 	sub = nb_len + arg->precision + (have_hash ? 2 : 0);
 	if (!arg->flags.minus)
-		join_args(arg, get_width(arg, sub), arg->width, arg->flags.zero == 0);
+		join_width(arg, sub, arg->flags.zero == 0);
 	join_args(arg, nb, nb_len, NOREVERSE);
 	if (arg->flags.minus)
-		join_args(arg, get_width(arg, sub), arg->width, NOREVERSE);
+		join_width(arg, sub, NOREVERSE);
 }

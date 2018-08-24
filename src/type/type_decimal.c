@@ -6,7 +6,7 @@
 /*   By: mpetrovy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 11:45:40 by mpetrovy          #+#    #+#             */
-/*   Updated: 2018/08/24 16:49:45 by mpetrovy         ###   ########.fr       */
+/*   Updated: 2018/08/24 17:21:40 by mpetrovy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,30 +26,12 @@ void	type_decimal(t_arg *arg, va_list ap)
 	have_sign = 0;
 	if (arg->flags.negative || arg->flags.plus || arg->flags.space)
 		have_sign = 1;
-	join_args(arg, get_precision(arg, nb_len), arg->precision, REVERSE);
+	join_precision(arg, nb_len);
 	join_args(arg, get_sign(arg->flags), have_sign, arg->flags.zero == 0);
 	sub = nb_len + arg->precision + have_sign;
 	if (!arg->flags.minus)
-		join_args(arg, get_width(arg, sub), arg->width, arg->flags.zero == 0);
+		join_width(arg, sub, arg->flags.zero == 0);
 	join_args(arg, nb, nb_len, NOREVERSE);
 	if (arg->flags.minus)
-		join_args(arg, get_width(arg, sub), arg->width, NOREVERSE);
-/* 	char i = (char)arg->length + 48, */
-/* 		j = nb_len + 48, */
-/* 		k = arg->width + 48, */
-/* 		l = arg->precision + 48, */
-/* 		m = sub + 48; */
-/* 	write(1, "nb_len[", 7); */
-/* 	write(1, &j, 1); */
-/* 	write(1, "]", 1); */
-/* 	write(1, "width[", 6); */
-/* 	write(1, &k, 1); */
-/* 	write(1, "]", 1); */
-/* 	write(1, "precision[", 10); */
-/* 	write(1, &l, 1); */
-/* 	write(1, "]", 1); */
-/* 	write(1, "sub[", 4); */
-/* 	write(1, &m, 1); */
-/* 	write(1, "]", 1); */
-/* 	write(1, &i, 1); */
+		join_width(arg, sub, NOREVERSE);
 }

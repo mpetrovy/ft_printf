@@ -6,7 +6,7 @@
 /*   By: mpetrovy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 11:45:47 by mpetrovy          #+#    #+#             */
-/*   Updated: 2018/08/04 14:39:14 by mpetrovy         ###   ########.fr       */
+/*   Updated: 2018/08/24 17:25:26 by mpetrovy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,12 @@ void		type_octal(t_arg *arg, va_list ap)
 	have_hash = 0;
 	if (arg->flags.hash)
 		have_hash = 1;
-	join_args(arg, get_precision(arg, nb_len + have_hash),
-			arg->precision, REVERSE);
+	join_precision(arg, nb_len + have_hash);
 	join_args(arg, get_hash(arg->flags), have_hash, arg->flags.zero == 0);
 	sub = nb_len + arg->precision + have_hash;
 	if (!arg->flags.minus)
-		join_args(arg, get_width(arg, sub), arg->width, arg->flags.zero == 0);
+		join_width(arg, sub, arg->flags.zero == 0);
 	join_args(arg, nb, nb_len, NOREVERSE);
 	if (arg->flags.minus)
-		join_args(arg, get_width(arg, sub), arg->width, NOREVERSE);
+		join_width(arg, sub, NOREVERSE);
 }

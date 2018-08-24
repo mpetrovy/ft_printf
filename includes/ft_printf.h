@@ -6,7 +6,7 @@
 /*   By: mpetrovy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 14:12:04 by mpetrovy          #+#    #+#             */
-/*   Updated: 2018/08/24 16:49:57 by mpetrovy         ###   ########.fr       */
+/*   Updated: 2018/08/24 17:20:39 by mpetrovy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ struct			s_flags
 
 struct			s_arg
 {
-	int a;
 	char	*argument;
 	int		length;
 	int		h_counter;
@@ -85,6 +84,8 @@ void			type_else(t_arg *arg, char c);
 char			*itoa_base(unsigned long value, unsigned int base, char hex);
 
 void			join_args(t_arg *arg, char *str, int len, _Bool reverse);
+void			join_precision(t_arg *arg, int nb_len);
+void			join_width(t_arg *arg, int sub, _Bool flag);
 
 unsigned long	get_number_signed(void *nb, t_flags *flags);
 unsigned long	get_number_unsigned(void *nb, t_flags *flags);
