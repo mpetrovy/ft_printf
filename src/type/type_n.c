@@ -6,7 +6,7 @@
 /*   By: mpetrovy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/24 17:40:45 by mpetrovy          #+#    #+#             */
-/*   Updated: 2018/08/24 17:46:49 by mpetrovy         ###   ########.fr       */
+/*   Updated: 2018/08/24 17:48:43 by mpetrovy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,8 @@ void	type_n(va_list ap, int ret_nb)
 	int	*n;
 
 	n = va_arg(ap, int*);
-	*n = ret_nb;
+	if (n != NULL)
+	{
+		*n = ret_nb;
+	}
 }
