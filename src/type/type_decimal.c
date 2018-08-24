@@ -6,7 +6,7 @@
 /*   By: mpetrovy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 11:45:40 by mpetrovy          #+#    #+#             */
-/*   Updated: 2018/08/24 16:35:01 by mpetrovy         ###   ########.fr       */
+/*   Updated: 2018/08/24 16:39:32 by mpetrovy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,8 @@ void	type_decimal(t_arg *arg, va_list ap)
 	if (arg->flags.minus)
 		join_args(arg, get_width(arg, sub), arg->width, NOREVERSE);
 	char i = (char)arg->length + 48;
+	write(1, "nb_len[", 7);
+	write(1, &((char)(nb_len + 48)), 1);
+	write(1, "]", 1);
 	write(1, &i, 1);
 }
