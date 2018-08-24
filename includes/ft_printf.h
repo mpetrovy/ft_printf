@@ -6,7 +6,7 @@
 /*   By: mpetrovy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 14:12:04 by mpetrovy          #+#    #+#             */
-/*   Updated: 2018/08/24 17:20:39 by mpetrovy         ###   ########.fr       */
+/*   Updated: 2018/08/24 17:43:53 by mpetrovy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void			type_unsigned(t_arg *arg, va_list ap);
 void			type_hexidecimal(t_arg *arg, va_list ap, char c);
 void			type_octal(t_arg *arg, va_list ap);
 void			type_else(t_arg *arg, char c);
+void			type_n(va_list ap, int ret_nb);
 
 char			*itoa_base(unsigned long value, unsigned int base, char hex);
 

@@ -6,7 +6,7 @@
 /*   By: mpetrovy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/20 13:15:33 by mpetrovy          #+#    #+#             */
-/*   Updated: 2018/08/24 17:35:43 by mpetrovy         ###   ########.fr       */
+/*   Updated: 2018/08/24 17:47:16 by mpetrovy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static void		follow_conversion(char c, t_arg *arg, va_list ap)
 		type_wchar_string(arg, ap);
 	else if (c == 'p')
 		type_pointer(arg, ap);
+	else if (c == 'n')
+		type_n(arg, ap);
 	else if (c == 'd' || c == 'D' || c == 'i')
 		type_decimal(arg, ap);
 	else if (c == 'o' || c == 'O')
@@ -28,10 +30,10 @@ static void		follow_conversion(char c, t_arg *arg, va_list ap)
 		type_hexidecimal(arg, ap, c);
 	else if (c == 'u' || c == 'U')
 		type_unsigned(arg, ap);
-	else if (c == 'c' || c == 'C')//&& !arg->flags.l)
+	else if (c == 'c' && !arg->flags.l)
 		type_else(arg, (char)va_arg(ap, int));
-//	else if (c == 'C' || c == 'c')
-//		type_wchar(arg, va_arg(ap, int));
+	else if (c == 'C' || c == 'c')
+		type_wchar(arg, va_arg(ap, int));
 	else
 		type_else(arg, c);
 }

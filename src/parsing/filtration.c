@@ -6,13 +6,13 @@
 /*   By: mpetrovy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/09 18:27:48 by mpetrovy          #+#    #+#             */
-/*   Updated: 2018/08/12 17:58:57 by mpetrovy         ###   ########.fr       */
+/*   Updated: 2018/08/24 17:39:36 by mpetrovy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void			filtration(t_arg *arg, char c)
+void	filtration(t_arg *arg, char c)
 {
 	if (arg->h_counter && arg->h_counter % 2 == 1)
 		arg->flags.h = 1;

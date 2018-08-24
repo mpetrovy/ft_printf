@@ -26,6 +26,7 @@ SRC_FT_PRINTF	:=	ft_printf.c \
 					type/type_hexidecimal.c \
 					type/type_octal.c \
 					type/type_pointer.c \
+					type/type_n.c \
 					type/type_string.c \
 					type/type_unsigned.c \
 					type/type_wchar.c \
